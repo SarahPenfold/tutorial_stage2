@@ -1,4 +1,23 @@
 library(ggplot2)
+library(tidyverse)
+
+
+response %>%
+  group_by(genotype) %>% 
+  summarise(m = mean(sens), 
+            sd = sd(sens),
+            n = length(sens),
+            se = sd/sqrt(n))
+  
+# filter out rows
+
+response %>% 
+  filter(genotype =="A2")
+
+# select columns
+response %>% 
+  select(-GSH)
+  
 #data input
 response <- read.table("response.txt", skip = 6, header = TRUE)
 str(response)
