@@ -1,0 +1,53 @@
+---
+title: "Analysis"
+author: "Sarah"
+date: "4 February 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE, }
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+# Introduction
+The aim of this analysis is to determine the effect of patient genotype and their glutathione (GSH) concentration on their sensitivty to cytotoxic (anti-cancer) drugs. Previous research has displayed that patients respond differently to anti-cancer drugs and that sensitivity can be implicated by both genotype and GSH concentration.
+
+Researchers measured treatment sensitivity and GSH concentration for patients that had one of three alleles (*A2*,*AA01*,*B34*). The data is comprised of the following three variables:
+
+**GSH**: a continuous measure glutathione concentration
+**sens**: a continuous measure of treatment sensitivity in arbitrary units
+**genotype**: a factor with three levels,A2, AA01 and B34
+
+# Methods - leave
+
+# Results
+
+# direction and magnitude of output - effect of sensitivty and effect of genotype
+# input each data section ino the grey boxes
+
+
+
+```{r cars, echo=FALSE, warning=FALSE, message=FALSE}
+m <- mean(cars$dist)
+response <- read.table("response.txt", skip = 6, header = TRUE)
+str(response)
+mod <- lm(data = response, sens ~ GSH * genotype)
+summary(mod)
+
+anova(mod)
+
+mod_2  <- update(mod, .~. -GSH:genotype)
+
+summary(mod_2)
+```
+
+The **mean** *distance* is 'r m' and it is big and $p = \chi{2}
+
+gsh effects sesn (df = 'r res$df[1], 'r res$df[3])
+
+
+```{r}
+
+```
+
+
